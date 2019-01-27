@@ -26,7 +26,7 @@ import collection.immutable.Seq
  * auto generates an instance of [[FunctorK]]
  */
 @compileTimeOnly("Cannot expand @autoFunctorK")
-class autoFunctorK(autoDerivation: Boolean) extends StaticAnnotation {
+class autoFunctorK(autoDerivation: Boolean = false) extends StaticAnnotation {
   inline def apply(defn: Any): Any = meta {
     val autoDerivation: Boolean = this match {
       case q"new $_(${Lit.Boolean(arg)})" => arg
